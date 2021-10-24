@@ -8,13 +8,7 @@ public class ThreadCheckArray implements Runnable
 	ArrayList<Integer> array; //**
 	int b;
 	
-	
-	
-	
-	
-	/**
-	 * @param sd
-	 */
+
 	public ThreadCheckArray(SharedData sd) 
 	{
 		this.sd = sd;	
