@@ -2,6 +2,7 @@ package DB;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,32 +16,12 @@ public class DBConnector {
 
 	private static Connection conn = null;
 	private static ArrayList<Order> array = new ArrayList<Order>();
+	private static Order or;
 
 	public static void main(String[] args) {
-		conn = makeAndReturnConnection();
-		array = DBConnector.getAllDataFromDB(conn);
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-//			System.out.println("Driver definition succeed");
-//		} catch (Exception ex) {
-//			/* handle the error */
-//			System.out.println("Driver definition failed");
-//		}
-//
-//		try {
-//			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/Assignment2?serverTimezone=IST",
-//					"root", "211515838");
-//			// Connection conn =
-//			// DriverManager.getConnection("jdbc:mysql://192.168.3.68/test","root","Root");
-//			System.out.println("SQL connection succeed");
-////			printAll(conn);
-////			return conn;
-//
-//		} catch (SQLException ex) {/* handle any errors */
-//			System.out.println("SQLException: " + ex.getMessage());
-//			System.out.println("SQLState: " + ex.getSQLState());
-//			System.out.println("VendorError: " + ex.getErrorCode());
-//		}
+		conn = makeAndReturnConnection(); //connect
+		array = DBConnector.getAllDataFromDB(conn); // get data 
+		
 	}
 
 	public static Connection makeAndReturnConnection() {

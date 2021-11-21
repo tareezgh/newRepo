@@ -89,6 +89,8 @@ public class MainServer extends AbstractServer {
 				
 			}
 		} 
+		
+		
 //		else if (msg instanceof Order) {
 //			Connection con = DBConnector.makeAndReturnConnection();
 //			Order newOrder = (Order) msg;

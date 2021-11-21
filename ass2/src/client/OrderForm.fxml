@@ -14,12 +14,12 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Label layoutX="73.0" layoutY="97.0" text="Restaurant:">
+      <Label layoutX="72.0" layoutY="166.0" text="Restaurant:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="162.0" text="OrderNumber:">
+      <Label layoutX="63.0" layoutY="84.0" text="OrderNumber:">
          <font>
             <Font size="15.0" />
          </font>
@@ -44,13 +44,14 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtRestaurant" layoutX="179.0" layoutY="93.0" prefHeight="27.0" prefWidth="289.0" />
-      <TextField fx:id="txtOrderNumber" layoutX="180.0" layoutY="158.0" prefHeight="27.0" prefWidth="289.0" />
+      <TextField fx:id="txtRestaurant" layoutX="176.0" layoutY="162.0" prefHeight="27.0" prefWidth="289.0" />
+      <TextField fx:id="txtOrderNumber" layoutX="179.0" layoutY="80.0" prefHeight="27.0" prefWidth="239.0" />
       <TextField layoutX="189.0" layoutY="409.0" prefHeight="27.0" prefWidth="276.0" />
       <TextField layoutX="183.0" layoutY="292.0" prefHeight="27.0" prefWidth="283.0" />
       <TextField fx:id="txtOrderTime" layoutX="179.0" layoutY="224.0" prefHeight="27.0" prefWidth="289.0" />
       <TextField layoutX="183.0" layoutY="354.0" prefHeight="27.0" prefWidth="283.0" />
       <Button fx:id="btnBack" layoutX="63.0" layoutY="478.0" mnemonicParsing="false" onAction="#getBackBtn" text="Back" />
       <Button fx:id="btnSave" layoutX="394.0" layoutY="478.0" mnemonicParsing="false" onAction="#getSaveBtn" text="Save" />
+      <Button layoutX="445.0" layoutY="80.0" mnemonicParsing="false" text="Show" />
    </children>
 </AnchorPane>

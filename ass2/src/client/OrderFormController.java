@@ -32,11 +32,26 @@ public class OrderFormController implements Initializable {
 	private Label lblOrderTime;
 
 	@FXML
+	private Label lblPhoneNumber;
+	@FXML
+	private Label lblTypeOfOrder;
+	@FXML
+	private Label lblOrderAddress;
+	
+	@FXML
 	private TextField txtRestaurant;
 	@FXML
 	private TextField txtOrderNumber;
 	@FXML
 	private TextField txtOrderTime;
+	
+	
+	@FXML
+	private TextField txtPhoneNumber;
+	@FXML
+	private TextField txtTypeOfOrder;
+	@FXML
+	private TextField txtOrderAddress;
 	
 //	@FXML
 //	private ComboBox cmbTypeOfOrder;
@@ -47,13 +62,22 @@ public class OrderFormController implements Initializable {
 	private Button btnBack = null;
 	
 	ObservableList<String> list;
+	
+	
+	
+	
+	
+	
 
 	public void loadOrder(Order ord) {
 		this.order = ord;
 		this.txtRestaurant.setText(order.getRestaurant());
 		this.txtOrderNumber.setText(order.getOrderNumber());
 		this.txtOrderTime.setText(order.getOrderTime());
-//		this.cmbTypeOfOrder.setValue(order.getTypeOfOrder());
+		this.txtRestaurant.setText(order.getRestaurant());
+		this.txtOrderNumber.setText(order.getOrderNumber());
+		this.txtOrderTime.setText(order.getOrderTime());
+
 
 	}
 	
@@ -75,7 +99,7 @@ public class OrderFormController implements Initializable {
 	
 	@FXML // Errors // ********
 	public void getSaveBtn(ActionEvent event) throws Exception {
-		System.out.println("Save Academic Tool");
+		System.out.println("Save  Tool");
 //		order.setRestaurant(txtRestaurant.getText());
 //		order.setOrderNumber(txtOrderNumber.getText());
 //		order.setOrderTime(txtOrderTime.getText());	

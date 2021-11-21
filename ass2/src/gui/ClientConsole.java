@@ -1,4 +1,4 @@
-package client;
+package gui;
 // This file contains material supporting section 3.7 of the textbook:
 
 // "Object Oriented Software Engineering" and is issued under the open-source
@@ -80,6 +80,10 @@ public class ClientConsole extends AbstractClient {
 	}
 
 	// Instance methods ************************************************
+
+	
+
+	
 
 	/**
 	 * This method waits for input from the console. Once it is received, it sends
