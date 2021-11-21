@@ -55,7 +55,7 @@ public class BMServerUI extends Application {
 		try {
 			ms.listen(); // Start listening for connections
 		} catch (Exception ex) {
-			System.out.println("ERROR - Could not listen for clients!");
+			System.out.println("2ERROR - Could not listen for clients!");
 		}
 	}
 

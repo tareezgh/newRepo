@@ -7,15 +7,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class BMMainUI extends Application {
-	public static ClientConsole order;
+	public static ClientController CC;  //  ClientConsole
 
 	public static void main(String args[]) throws Exception {
 		launch(args);
 	} // end main
 
 	public void start(Stage primaryStage) throws Exception {
-		order = new ClientConsole("localhost",5555, order);
-		MainFormController aFrame = new MainFormController(); // create StudentFrame
+		CC = new ClientController("localhost",5555);
+		
+		MainFormController aFrame = new MainFormController(); // create Main Frame
 		 
 		aFrame.start(primaryStage);
 	}

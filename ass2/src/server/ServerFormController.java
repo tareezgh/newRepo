@@ -40,7 +40,7 @@ public class ServerFormController {
 
 		} else {
 			((Node) event.getSource()).getScene().getWindow().hide(); // hiding primary window
-			BMServerUI.runServer(port);
+			BMServerUI.runServer(port); // send port to connect
 		}
 	}
 

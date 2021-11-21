@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.EditOrderFormController">
    <children>
-      <Text layoutX="33.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can edit order here" wrappingWidth="262.21630859375">
+      <Text layoutX="27.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can edit order here" wrappingWidth="182.21630859375">
          <font>
             <Font size="18.0" />
          </font>
@@ -28,7 +28,7 @@
       </Label>
       <TextField fx:id="txtOrderAddress" layoutX="153.0" layoutY="94.0" prefHeight="27.0" prefWidth="248.0" />
       <TextField fx:id="txtTypeOfOrder" layoutX="153.0" layoutY="140.0" prefHeight="27.0" prefWidth="248.0" />
-      <TextField layoutX="342.0" layoutY="16.0" prefHeight="27.0" prefWidth="73.0" />
-      <Label layoutX="280.0" layoutY="21.0" text="Order N." />
+      <TextField layoutX="342.0" layoutY="30.0" prefHeight="27.0" prefWidth="73.0" />
+      <Label layoutX="277.0" layoutY="35.0" text="Order N." />
    </children>
 </AnchorPane>

@@ -24,14 +24,14 @@ public class ClientController implements ChatIF
   /**
    * The default port to connect on.
    */
-   public static int DEFAULT_PORT ;
+   final public static int DEFAULT_PORT =5555;
   
   //Instance variables **********************************************
   
   /**
    * The instance of the client that created this ConsoleChat.
    */
-  ChatClient client;
+  BMClient client; //ChatClient
 
   //Constructors ****************************************************
 
@@ -45,7 +45,7 @@ public class ClientController implements ChatIF
   {
     try 
     {
-      client= new ChatClient(host, port, this);
+      client= new BMClient(host, DEFAULT_PORT, this); // DEFAULT_PORT not port
     } 
     catch(IOException exception) 
     {

@@ -2,7 +2,6 @@ package gui;
 
 import java.io.IOException;
 
-import client.BMClientUI;
 import client.OrderFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,17 +18,17 @@ import logic.Order;
 public class MainFormController {
 
 	private OrderFormController OFC;
-	
+
 	@FXML
 	private Button btnShowOrder = null;
 
-	@FXML
-	private Button btnEditOrder = null;
+//	@FXML
+//	private Button btnEditOrder = null;
 	@FXML
 	private Button btnExit = null;
 
 	@FXML
-	private Label lblNumber;
+	private Label lblOrderNumber;
 
 	@FXML
 	private TextField txtOrderNumber;
@@ -59,66 +58,58 @@ public class MainFormController {
 
 			System.out.println("You must enter order number");
 		} else {
-			BMClientUI.order.accept(OrderNumber);
+			BMMainUI.CC.accept(OrderNumber); // ***
 
-			if (ChatClient.o1.getOrderNumber().equals("Error")) {
-				System.out.println("Order number Not Found");
+//			if (BMClient.o1.getOrderNumber().equals("Error")) {
+//				System.out.println("Order number Not Found");
+//
+//			} else {
+//				System.out.println("Order number Found");
 
-			} else {
-				System.out.println("Order number Found");
+			((Node) event.getSource()).getScene().getWindow().hide(); // hide main window and show order details
+			FXMLLoader loader1 = new FXMLLoader();
+			AnchorPane root = (AnchorPane) loader1.load(getClass().getResource("/client/OrderForm.fxml").openStream());
+			Stage primaryStage = new Stage();
 
-				((Node) event.getSource()).getScene().getWindow().hide(); // hide main window
-				FXMLLoader loader1 = new FXMLLoader();
-				AnchorPane root = (AnchorPane) loader1
-						.load(getClass().getResource("/client/OrderForm.fxml").openStream());
-				Stage primaryStage = new Stage();
-				
-				OrderFormController orderFormController = loader.getController();		
-				orderFormController.loadOrder(ChatClient.o1);
-				
-				Scene scene = new Scene(root);
-				primaryStage.setScene(scene);
-				primaryStage.setResizable(false);
-				primaryStage.setTitle("BM-Order");
-				primaryStage.show();
-				
-				
-				
-				
-			}
+//			OrderFormController orderFormController = loader.getController();
+//			orderFormController.loadOrder(BMClient.o1); // load data to order form
+/// ERROR
+			
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.setTitle("BM-Order");
+			primaryStage.show();
+
+//			}
 
 		}
 	}
 
-	public void getEditOrderBtn(ActionEvent event) throws Exception {
-		((Node) event.getSource()).getScene().getWindow().hide(); // hide main window
-		FXMLLoader loader2 = new FXMLLoader();
-		AnchorPane root = (AnchorPane) loader2.load(getClass().getResource("/client/EditOrderForm.fxml").openStream());
-		Stage primaryStage = new Stage();
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.setResizable(false);
-		primaryStage.setTitle("BM-Edit Order");
-		primaryStage.show();
+//	public void getEditOrderBtn(ActionEvent event) throws Exception {
+//		((Node) event.getSource()).getScene().getWindow().hide(); // hide main window
+//		FXMLLoader loader2 = new FXMLLoader();
+//		AnchorPane root = (AnchorPane) loader2.load(getClass().getResource("/client/EditOrderForm.fxml").openStream());
+//		Stage primaryStage = new Stage();
+//		Scene scene = new Scene(root);
+//		primaryStage.setScene(scene);
+//		primaryStage.setResizable(false);
+//		primaryStage.setTitle("BM-Edit Order");
+//		primaryStage.show();
+//
+//	}
 
-	}
-
-	
-	
-	
 	public void getExitBtn(ActionEvent event) throws Exception {
 		System.out.println("Come back soon:)");
 		System.exit(0);
 	}
-	
-	
+
 	public void loadOrder(Order o1) {
 		this.OFC.loadOrder(o1);
 	}
-	
+
 	public void display(String message) {
 		System.out.println("message");
 	}
-	
 
 }

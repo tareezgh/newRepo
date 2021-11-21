@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import DB.DBConnector;
+import gui.BMMainUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +52,7 @@ public class EditOrderFormController {
 		al.add(TypeOfOrder);
 
 		
-		BMClientUI.accept(al); // accept empty 
+//		BMMainUI.accept(al); // accept empty 
 		System.out.println("Saved");
 
 	}

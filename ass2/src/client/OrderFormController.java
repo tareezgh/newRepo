@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import logic.Order;
 
 
-public class OrderFormController implements Initializable {
+public class OrderFormController{ // implements Initializable {
 	private Order order;
 	@FXML
 	private Label lblRestaurant;
@@ -30,7 +30,6 @@ public class OrderFormController implements Initializable {
 	private Label lblOrderNumber;
 	@FXML
 	private Label lblOrderTime;
-
 	@FXML
 	private Label lblPhoneNumber;
 	@FXML
@@ -38,18 +37,19 @@ public class OrderFormController implements Initializable {
 	@FXML
 	private Label lblOrderAddress;
 	
+	
 	@FXML
 	private TextField txtRestaurant;
 	@FXML
 	private TextField txtOrderNumber;
 	@FXML
 	private TextField txtOrderTime;
-	
-	
 	@FXML
 	private TextField txtPhoneNumber;
 	@FXML
 	private TextField txtTypeOfOrder;
+//	@FXML
+//	private ComboBox cmbTypeOfOrder;
 	@FXML
 	private TextField txtOrderAddress;
 	
@@ -57,26 +57,23 @@ public class OrderFormController implements Initializable {
 //	private ComboBox cmbTypeOfOrder;
 
 	@FXML
-	private Button btnSave = null;
+	private Button btnEditOrder = null;
 	@FXML
 	private Button btnBack = null;
 	
 	ObservableList<String> list;
 	
 	
-	
-	
-	
-	
 
-	public void loadOrder(Order ord) {
-		this.order = ord;
+	public void loadOrder(Order o1) {
+		this.order = o1;
 		this.txtRestaurant.setText(order.getRestaurant());
 		this.txtOrderNumber.setText(order.getOrderNumber());
 		this.txtOrderTime.setText(order.getOrderTime());
-		this.txtRestaurant.setText(order.getRestaurant());
-		this.txtOrderNumber.setText(order.getOrderNumber());
-		this.txtOrderTime.setText(order.getOrderTime());
+		this.txtPhoneNumber.setText(order.getPhoneNumber());
+//		this.txtTypeOfOrder.setText(order.getTypeOfOrder());
+//		this.cmbTypeOfOrder.setValue(order.getTypeOfOrder());
+		this.txtOrderAddress.setText(order.getOrderAddress());
 
 
 	}
@@ -89,17 +86,28 @@ public class OrderFormController implements Initializable {
 //		list = FXCollections.observableArrayList(al);
 //		cmbTypeOfOrder.setItems(list);
 //	}
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+//
+//	@Override
+//	public void initialize(URL arg0, ResourceBundle arg1) {
 //		setOrderTypeComboBox();
-		
-	}
+//		
+//	}
 	
 	
 	@FXML // Errors // ********
-	public void getSaveBtn(ActionEvent event) throws Exception {
-		System.out.println("Save  Tool");
+	public void getEditOrder(ActionEvent event) throws Exception {
+		((Node) event.getSource()).getScene().getWindow().hide(); // hide main window
+		FXMLLoader loader2 = new FXMLLoader();
+		AnchorPane root = (AnchorPane) loader2.load(getClass().getResource("/client/EditOrderForm.fxml").openStream());
+		Stage primaryStage = new Stage();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.setTitle("BM-Edit Order");
+		primaryStage.show();
+		
+		
+		
 //		order.setRestaurant(txtRestaurant.getText());
 //		order.setOrderNumber(txtOrderNumber.getText());
 //		order.setOrderTime(txtOrderTime.getText());	

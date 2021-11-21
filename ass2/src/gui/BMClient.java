@@ -6,12 +6,14 @@ package gui;
 
 import ocsf.client.*;
 
+
 import client.*;
 import common.ChatIF;
 
 import logic.Order;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * This class overrides some of the methods defined in the abstract
@@ -22,7 +24,7 @@ import java.io.*;
  * @author Fran&ccedil;ois B&eacute;langer
  * @version July 2000
  */
-public class ChatClient extends AbstractClient
+public class BMClient extends AbstractClient    /// ChatClient.java file in practice
 {
   //Instance variables **********************************************
   
@@ -30,6 +32,11 @@ public class ChatClient extends AbstractClient
    * The interface type variable.  It allows the implementation of 
    * the display method in the client.
    */
+//	ClientController CC; // adding
+	OrderFormController OFC;
+//	EditOrderFormController EOFC;
+//	public static ArrayList<Order> ArrOrder; 
+	
   ChatIF clientUI; 
   public static Order  o1 = new Order(null,null,null,null,null,null);
   public static boolean awaitResponse = false;
@@ -44,7 +51,7 @@ public class ChatClient extends AbstractClient
    * @param clientUI The interface type variable.
    */
 	 
-  public ChatClient(String host, int port, ChatIF clientUI) 
+  public BMClient(String host, int port, ChatIF clientUI) 
     throws IOException 
   {
     super(host, port); //Call the superclass constructor
@@ -63,18 +70,24 @@ public class ChatClient extends AbstractClient
   {
 	  System.out.println("--> handleMessageFromServer");
      
-	  awaitResponse = false;
-	  String st;
-	  st=msg.toString();
-	  String[] result = st.split("\\s");
-	  o1.setRestaurant(result[0]);
-	  o1.setOrderNumber(result[1]);
-	  o1.setOrderTime(result[2]);
-	  o1.setPhoneNumber(result[3]);
-	  o1.setTypeOfOrder(result[4]);
-	  o1.setOrderAddress(result[5]);
+	  clientUI.display(msg.toString());
 	  
 	 
+	  // Haser
+	  
+//	  awaitResponse = false;
+//	  String st;
+//	  st=msg.toString();
+//	  Order[] result = (Order[]) msg;
+//	  String[] result = st.split("\\s");
+//	  o1.setRestaurant(result[0]);
+//	  o1.setOrderNumber(result[1]);
+//	  o1.setOrderTime(result[2]);
+//	  o1.setPhoneNumber(result[3]);
+//	  o1.setTypeOfOrder(result[4]);
+//	  o1.setOrderAddress(result[5]);
+	  
+//	  OFC.loadOrder(o1);
 	 
   }
 

@@ -2,7 +2,6 @@ package DB;
 
 import java.sql.Connection;
 
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,15 +15,16 @@ public class DBConnector {
 
 	private static Connection conn = null;
 	private static ArrayList<Order> array = new ArrayList<Order>();
+
 	private static Order or;
 
 	public static void main(String[] args) {
-		conn = makeAndReturnConnection(); //connect
-		array = DBConnector.getAllDataFromDB(conn); // get data 
-		
+		conn = ConnectToDB(); // connect
+		array = DBConnector.getAllDataFromDB(conn); // get data
+
 	}
 
-	public static Connection makeAndReturnConnection() {
+	public static Connection ConnectToDB() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			System.out.println("Driver definition succeed");
@@ -42,6 +42,11 @@ public class DBConnector {
 //			printAll(conn);
 			return conn;
 
+//			arrayOrder = getData(conn,msg);
+//			array = DBConnector.getAllDataFromDB(conn);
+
+//			return arrayOrder;
+
 		} catch (SQLException ex) {/* handle any errors */
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
@@ -50,23 +55,56 @@ public class DBConnector {
 		return null;
 	}
 
-//	public static void printAll(Connection con) {
+//	private static ArrayList<Order> getData(Connection con, Object msg) {
 //
-//		Statement stmt;
+//		Statement stmt = null;
 //		try {
 //			stmt = con.createStatement();
-//			ResultSet rs = stmt.executeQuery("SELECT * FROM Order;");
+//
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM Assignment2.Order;");
 //			while (rs.next()) {
+//
+//				array.add(new Order(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+//						rs.getString(6)));
+//
+//				if (array.get(1) == msg) {
+//					break;
+//				}
+//
 //				// Print out the values
-//				System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  "
-//						+ rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
+////			System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  "
+////					+ rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
 //			}
+//
 //			rs.close();
+////		return array;
+////		client.sendToClient(array);
 //
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
+//		return array;
 //	}
+//	
+
+
+	public static void printAll(Connection con) {
+
+		Statement stmt;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Assignment2.Order;");
+			while (rs.next()) {
+				// Print out the values
+				System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  "
+						+ rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
+			}
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static ArrayList<Order> getAllDataFromDB(Connection con) {
 //		ArrayList<Order> array = new ArrayList<Order>();
@@ -80,8 +118,8 @@ public class DBConnector {
 				array.add(new Order(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6)));
 				// Print out the values
-				System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  "
-						+ rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
+//				System.out.println(rs.getString(1) + "  " + rs.getString(2) + "  " + rs.getString(3) + "  "
+//						+ rs.getString(4) + "  " + rs.getString(5) + "  " + rs.getString(6));
 			}
 			rs.close();
 
@@ -90,6 +128,7 @@ public class DBConnector {
 		}
 		return array;
 	}
+	
 
 	public static void saveUserToDB(Order order, Connection con) { // *******
 
